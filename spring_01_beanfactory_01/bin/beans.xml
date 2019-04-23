@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+           
+    <!-- 
+    	abstract表示不创建对象
+    	depends-on控制对象创建的顺序
+    	lazy-init控制对象何时创建
+    -->
+	<bean class="cn.com.leadfar.spring.MyUserAction" lazy-init="true"></bean>
+	<bean id="userAction" name="userAction1" class="cn.com.leadfar.spring.UserAction" ></bean>
+	
+</beans>

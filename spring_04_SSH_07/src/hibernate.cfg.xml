@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- 数据库链接的相关配置 -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/ssh</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">leadfar</property>
+		
+		<!-- 数据库方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!-- 自动打印出SQL语句 -->
+		<property name="show_sql">true</property>
+		
+		<!-- 自动创建数据库表 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		<!-- 映射文件列表 -->
+		<mapping resource="cn/com/leadfar/model/ContactPerson.hbm.xml"/>
+		<mapping resource="cn/com/leadfar/model/Group.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

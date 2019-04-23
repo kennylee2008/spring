@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="userService" class="cn.com.leadfar.services.impl.UserServiceImpl"></bean>
+	<bean id="roleService" class="cn.com.leadfar.services.impl.RoleServiceImpl">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="documentService" class="cn.com.leadfar.services.impl.DocumentServiceImpl"></bean>
+</beans>

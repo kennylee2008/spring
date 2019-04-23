@@ -1,0 +1,36 @@
+-------------------------------------------
+Struts2.2.1依赖包
+-------------------------------------------
+commons-fileupload-1.2.1.jar	- 用于文件上传
+commons-io-1.3.2.jar			- 用于文件上传
+freemarker-2.3.16.jar			- 用于Struts2中的HTML标签（TAGLIB）
+javassist-3.7.ga.jar			- 【在集成SSH的时候，由于Hibernate也需要这个依赖包，所以，可以直接使用Hibernate中依赖包即可】
+ognl-3.0.jar					- 用于ValueStack
+struts2-core-2.2.1.jar			- 核心依赖包
+xwork-core-2.2.1.jar			- 核心依赖包
+struts2-spring-plugin-2.2.1.jar	- 在集成Struts2和Spring时，需要用到的集成包
+
+--------------------------------------------
+Spring3.0.4依赖包
+--------------------------------------------
+dist/*.jar						- 在Spring解压目录下面
+commons-logging-1.1.1.jar		- Spring使用commons-loggin做日志管理
+aopalliance.jar					- Spring AOP依赖包
+aspectjrt.jar					- Spring AOP依赖包
+aspectjweaver.jar				- Spring AOP依赖包
+commons-dbcp.jar				- 如果需要在Spring中使用dbcp数据源定义，则此包是必须的
+commons-pool.jar				- 如果需要在Spring中使用dbcp数据源定义，则此包是必须的
+
+--------------------------------------------
+Hibernate3.5.5依赖包
+--------------------------------------------
+hibernate3.jar								- Hibernate核心包
+lib/required/antlr-2.7.6.jar				- 用于Hibernate中的HQL编译和解释
+lib/required/commons-collections-3.1.jar	- 用于对Hibernate中集合对象的增强
+lib/required/dom4j-1.6.1.jar				- 用于解释Hibernate的各种XML映射、配置文件
+lib/required/javassist-3.9.0.GA.jar			- 用于创建实体对象的代理对象（用于懒加载）
+lib/required/jta-1.1.jar					- 用于事务管理
+lib/required/slf4j-api-1.5.8.jar			- 用于日志记录
+slf4j-log4j12-1.5.8.jar						- 为了在Hibernate中使用Log4j作为日志记录的具体实现框架
+log4j-1.2.16.jar							- Log4j日志记录框架
+mysql-connector-java-3.1.13-bin.jar			- MySql数据库驱动包

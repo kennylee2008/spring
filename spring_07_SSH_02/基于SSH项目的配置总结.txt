@@ -1,0 +1,54 @@
+---------------------------------------
+web.xml通常要配置
+	- ContextLoaderListener ： 用于初始化Spring的BeanFactory
+	- OpenSessionInViewFilter： 用于处理Hibernate的Session
+	- Struts2本身的过滤器
+
+Struts2配置文件
+----------------------------------------
+主要配置Action的映射，Action映射的class的值使用其在Spring配置中的ID
+
+
+Spring配置文件
+----------------------------------------
+配置数据源
+配置SessionFactory
+配置事务管理器
+配置事务管理特性
+如果要使用注解
+	- 请配置Spring的扫描选项，设定Spring要扫描哪些包，让Spring能够自动根据注解发现有哪些对象需要由Spring来管理
+		* 使用@Repository来定义DAO
+			- 在定义的时候，可以指定其ID，如：@Repository("userDao")
+		* 使用@Service来定义Service
+			- 在定义的时候，可以指定其ID，如：@Service("userService")
+		* 使用@Controller来定义Action
+			- 在定义的时候，可以指定其ID，如：@Controller("userAction")
+		* 使用@Scope来定义singleton或prototype（不定义就是singleton）
+			- 如：@Scope("prototype")
+		* 使用@Resource来注入依赖关系
+			- 可以直接在field前面使用@Resource来注入
+			- 也可以在setters方法前面使用@Resource来注入
+			- 在注入的时候，可以指定其ID： @Resource(name="xxx")，这样就可以指定注入哪个对象
+---
+将Action、Service、DAO都交给Spring来管理
+注意：
+所有的DAO都必须注入SessionFactory
+一般来说，DAO和Service都是singleton的，而Action必须是prototype（对Struts2而言）
+基本依赖关系是：Action ---> Service ---> DAO
+
+Hibernate配置文件
+----------------------------------------
+在SSH中，hibernate的配置文件（hibernate.cfg.xml）可以省略
+如果你希望使用Hibernate Annotation，那么：
+	- 请在Spring中换用AnnotationSessionFactoryBean来创建SessionFactory
+	- 并指定让AnnotationSessionFactoryBean扫描哪些包，以便能够自动发现所有的实体类
+		* 即注入packagesToScan属性，请参考beans.xml配置文件
+	- Hibernate Annotation的基本使用方法如下：
+		* @Entity：定义实体类
+		* @Table(name="t_person")：定义实体类对应的表
+		* @Id ：定义哪个属性是ID（数据库标识）
+		* @GeneratedValue ： 在标识为ID的属性上定义它的生成策略，缺省是native
+		* @ManyToOne ： 定义多对一关联
+		* @JoinColumn(name="groupId") ： 在多对一关联中，定义对应的外键字段名称
+		* @OneToMany(mappedBy="group") ： 在双向多对一关联中，必须在OneToMany上定义mappedBy，它的意思是映射规则和关联关系由对方维护
+		* 【注意：在集合上请使用泛型，可减少很多配置上的麻烦！！！！】

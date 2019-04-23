@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.action.extension" value="action,do,struts2"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	<package name="system" namespace="/system" extends="struts-default">
+		<action name="person" class="personAction">
+			<result name="add_input">/person/add_input.jsp</result>
+			<result name="add_success">/person/add_success.jsp</result>
+		</action>
+	</package>
+</struts>

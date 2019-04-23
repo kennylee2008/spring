@@ -1,0 +1,2 @@
+基本的SSH集成配置模板
+	- 对于SessionFactory的创建，换用AnnotationSessionFactoryBean，便于能同时支持基于注解的实体类映射！

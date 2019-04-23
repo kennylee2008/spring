@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-autowire="byType">
+	<bean id="userAction" class="cn.com.leadfar.spring.UserAction" scope="prototype">
+	</bean>
+	<bean id="userService01" class="cn.com.leadfar.spring.UserService01">
+	</bean>
+	<bean id="userService02" class="cn.com.leadfar.spring.UserService02">
+	</bean>
+</beans>

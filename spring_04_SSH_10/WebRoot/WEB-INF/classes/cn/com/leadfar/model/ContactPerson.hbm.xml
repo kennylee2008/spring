@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.com.leadfar.model.ContactPerson" table="t_person">
+		<id name="id">
+			<generator class="assigned"/>
+		</id>
+		<version name="versionNumber"></version>
+		<property name="name"/>
+		<property name="address"/>
+		<property name="qq" />
+		<many-to-one name="group" column="gid"></many-to-one>
+	</class>
+	
+</hibernate-mapping>
